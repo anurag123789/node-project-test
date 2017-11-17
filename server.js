@@ -18,9 +18,9 @@ app.use((req, res, next)=>{
   next();
 });
 
-app.use((req, res , next)=>{
-  res.render('maintanence.hbs');
-});
+// app.use((req, res , next)=>{
+//   res.render('maintanence.hbs');
+// });
 app.use(express.static(__dirname+'/public'));
 
 hbs.registerHelper('getCurrentYear', ()=>{
@@ -44,7 +44,12 @@ app.get('/about',(req, res)=>{
   });
 });
 
-
+app.get('/details',(req, res)=>{
+  res.render('details.hbs',{
+    PageTitle : 'Details',
+    Content : 'Developer is Anurag'
+  });
+});
 
 app.get('/bad', (req, res)=>{
   res.send('bad request');
